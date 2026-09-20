@@ -48,4 +48,20 @@ describe('Web Tables Automation Test - DemoQA', () => {
     
     cy.get('.modal-content').should('be.visible');
   });
+  
+  it('4.3 Negative Test Case - Field Age Diisi dengan Huruf', () => {
+    WebTablesPage.clickAddButton();
+    WebTablesPage.fillForm('Budi', 'Pratama', 'budi@example.com', 'abc', '45000', 'IT');
+    WebTablesPage.submitForm();
+    
+    cy.get('.modal-content').should('be.visible');
+  });
+
+  it('4.4 Negative Test Case - Field Salary Dikosongkan', () => {
+    WebTablesPage.clickAddButton();
+    WebTablesPage.fillForm('Budi', 'Pratama', 'budi@example.com', '28', '', 'IT');
+    WebTablesPage.submitForm();
+    
+    cy.get('.modal-content').should('be.visible');
+  });
 });
